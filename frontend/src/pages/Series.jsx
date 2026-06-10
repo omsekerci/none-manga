@@ -18,7 +18,7 @@ function Series() {
   ]
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/series')
+    axios.get('https://spirited-charisma-production-c78c.up.railway.app/api/series')
       .then(res => {
         setSeries(res.data)
         setFiltered(res.data)

@@ -16,7 +16,7 @@ function Login() {
     setLoading(true)
     try {
       const url = tab === 'login' ? '/api/auth/login' : '/api/auth/register'
-      const res = await axios.post(`http://localhost:5000${url}`, form)
+      const res = await axios.post(`https://spirited-charisma-production-c78c.up.railway.app${url}`, form)
       login(res.data.token, res.data.user)
       navigate('/')
     } catch (err) {

@@ -14,7 +14,7 @@ function Home() {
   const perPage = 6
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/series')
+    axios.get('https://spirited-charisma-production-c78c.up.railway.app/api/series')
       .then(res => {
         setSeries(res.data)
         // Yeni bölüm banner'ı — son 24 saatte eklenen seri

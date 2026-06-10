@@ -13,7 +13,7 @@ function Reader() {
   const [text, setText] = useState('')
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/chapters/${chapter}`)
+    axios.get(`https://spirited-charisma-production-c78c.up.railway.app/api/chapters/${chapter}`)
       .then(res => {
         setChapterData(res.data)
         setLoading(false)
@@ -25,7 +25,7 @@ function Reader() {
 
   useEffect(() => {
     if (id) {
-      axios.get(`http://localhost:5000/api/series/${id}`)
+      axios.get(`https://spirited-charisma-production-c78c.up.railway.app/api/series/${id}`)
         .then(res => setAllChapters(res.data.chapters || []))
         .catch(() => {})
     }
@@ -47,7 +47,7 @@ function Reader() {
   }
 
   const fetchComments = () => {
-    axios.get(`http://localhost:5000/api/comments/${chapter}`)
+    axios.get(`https://spirited-charisma-production-c78c.up.railway.app/api/comments/${chapter}`)
       .then(res => setComments(res.data))
       .catch(() => {})
   }
@@ -55,7 +55,7 @@ function Reader() {
   const handleComment = async () => {
     if (!username.trim() || !text.trim()) return
     try {
-      await axios.post('http://localhost:5000/api/comments', { chapterId: chapter, username, text })
+      await axios.post('https://spirited-charisma-production-c78c.up.railway.app/api/comments', { chapterId: chapter, username, text })
       setText('')
       fetchComments()
     } catch (err) { console.log(err) }
