@@ -25,21 +25,21 @@ function Admin() {
 
   const fetchSeries = async () => {
     try {
-      const res = await axios.get('https://spirited-charisma-production-c78c.up.railway.app/api/series')
+      const res = await axios.get('https://gentle-analysis-production-c969.up.railway.app/api/series')
       setSeries(res.data)
     } catch (err) { console.log(err) }
   }
 
   const fetchChapters = async (seriesId) => {
     try {
-      const res = await axios.get(`https://spirited-charisma-production-c78c.up.railway.app/api/series/${seriesId}`)
+      const res = await axios.get(`https://gentle-analysis-production-c969.up.railway.app/api/series/${seriesId}`)
       setChapters(res.data.chapters)
     } catch (err) { console.log(err) }
   }
 
   const handleSeriesSubmit = async () => {
     try {
-      await axios.post('https://spirited-charisma-production-c78c.up.railway.app/api/series', {
+      await axios.post('https://gentle-analysis-production-c969.up.railway.app/api/series', {
         ...seriesForm,
         genre: seriesForm.genre.split(',').map(g => g.trim())
       })
@@ -51,7 +51,7 @@ function Admin() {
 
   const handleChapterSubmit = async () => {
     try {
-      await axios.post('https://spirited-charisma-production-c78c.up.railway.app/api/chapters', chapterForm)
+      await axios.post('https://gentle-analysis-production-c969.up.railway.app/api/chapters', chapterForm)
       setMessage('✓ Bölüm başarıyla eklendi!')
       setChapterForm({ seriesId: '', title: '', number: '' })
     } catch (err) { setMessage('✗ Hata oluştu!') }
@@ -63,7 +63,7 @@ function Admin() {
       return
     }
     try {
-      await axios.post(`https://spirited-charisma-production-c78c.up.railway.app/api/chapters/${pageForm.chapterId}/page`, { url: pageForm.url })
+      await axios.post(`https://gentle-analysis-production-c969.up.railway.app/api/chapters/${pageForm.chapterId}/page`, { url: pageForm.url })
       setMessage('✓ Sayfa başarıyla eklendi!')
       setPageForm({ ...pageForm, url: '' })
     } catch (err) { setMessage('✗ Hata oluştu!') }
@@ -72,7 +72,7 @@ function Admin() {
   const handleDelete = async (id) => {
     if (!window.confirm('Bu seriyi silmek istediğine emin misin?')) return
     try {
-      await axios.delete(`https://spirited-charisma-production-c78c.up.railway.app/api/series/${id}`)
+      await axios.delete(`https://gentle-analysis-production-c969.up.railway.app/api/series/${id}`)
       fetchSeries()
     } catch (err) { console.log(err) }
   }

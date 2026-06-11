@@ -13,7 +13,7 @@ function Reader() {
   const [text, setText] = useState('')
 
   useEffect(() => {
-    axios.get(`https://spirited-charisma-production-c78c.up.railway.app/api/chapters/${chapter}`)
+    axios.get(`https://gentle-analysis-production-c969.up.railway.app/api/chapters/${chapter}`)
       .then(res => {
         setChapterData(res.data)
         setLoading(false)
@@ -25,7 +25,7 @@ function Reader() {
 
   useEffect(() => {
     if (id) {
-      axios.get(`https://spirited-charisma-production-c78c.up.railway.app/api/series/${id}`)
+      axios.get(`https://gentle-analysis-production-c969.up.railway.app/api/series/${id}`)
         .then(res => setAllChapters(res.data.chapters || []))
         .catch(() => {})
     }
@@ -47,7 +47,7 @@ function Reader() {
   }
 
   const fetchComments = () => {
-    axios.get(`https://spirited-charisma-production-c78c.up.railway.app/api/comments/${chapter}`)
+    axios.get(`https://gentle-analysis-production-c969.up.railway.app/api/comments/${chapter}`)
       .then(res => setComments(res.data))
       .catch(() => {})
   }
@@ -55,7 +55,7 @@ function Reader() {
   const handleComment = async () => {
     if (!username.trim() || !text.trim()) return
     try {
-      await axios.post('https://spirited-charisma-production-c78c.up.railway.app/api/comments', { chapterId: chapter, username, text })
+      await axios.post('https://gentle-analysis-production-c969.up.railway.app/api/comments', { chapterId: chapter, username, text })
       setText('')
       fetchComments()
     } catch (err) { console.log(err) }

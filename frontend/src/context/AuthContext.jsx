@@ -10,7 +10,7 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
-      axios.get('https://spirited-charisma-production-c78c.up.railway.app/api/auth/me', {
+      axios.get('https://gentle-analysis-production-c969.up.railway.app/api/auth/me', {
         headers: { Authorization: `Bearer ${token}` }
       }).then(res => {
         setUser(res.data)

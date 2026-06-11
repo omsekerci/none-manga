@@ -9,7 +9,7 @@ function SeriesDetail() {
   const [isFav, setIsFav] = useState(false)
 
   useEffect(() => {
-    axios.get(`https://spirited-charisma-production-c78c.up.railway.app/api/series/${id}`)
+    axios.get(`https://gentle-analysis-production-c969.up.railway.app/api/series/${id}`)
       .then(res => { setData(res.data); setLoading(false) })
       .catch(() => setLoading(false))
     const favs = JSON.parse(localStorage.getItem('favorites') || '[]')
